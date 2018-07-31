@@ -101,9 +101,35 @@
 
 
 </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            // fix menu when passed
+            $('.masthead')
+                .visibility({
+                    once: false,
+                    onBottomPassed: function() {
+                        $('.fixed.menu').transition('fade in');
+                    },
+                    onBottomPassedReverse: function() {
+                        $('.fixed.menu').transition('fade out');
+                    }
+                });
+
+            // create sidebar and attach to menu open
+            $('.ui.sidebar')
+                .sidebar('attach events', '.toc.item');
+
+            $('.special.cards .image').dimmer({
+                on: 'hover'
+            });
+
+        });
+    </script>
 </head>
 <body>
-    <div id="app">
+
 
         <!-- Following Menu -->
         <div class="ui large top fixed hidden menu">
@@ -151,7 +177,7 @@
             @endif
         </div>
         <!-- Page Contents -->
-        <div class="pusher" id="root">
+        <div class="pusher" id="app">
             <div class="ui inverted vertical masthead center aligned segment">
 
                 <div class="ui container">
@@ -208,6 +234,6 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </body>
 </html>

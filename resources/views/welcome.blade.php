@@ -7,7 +7,7 @@
                         @foreach($courses as $courseInfo)
                         <div class="ui card">
                             <div class="blurring dimmable image">
-                                <div class="ui dimmer">
+                                    <div class="ui dimmer">
                                     <div class="content">
                                         <div class="center">
                                             <div class="ui inverted button">
