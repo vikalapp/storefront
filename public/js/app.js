@@ -43514,8 +43514,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
+    props: [],
+    components: {},
+    data: function data() {
+
+        var data = {
+            interval: null
+
+        };
+
+        return data;
+    },
+
+    created: function created() {},
+    methods: {
+
+        addToCart: function addToCart() {
+            alert(1);
+        }
+
     }
 });
 
@@ -43527,21 +43544,15 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("input", {
+      staticClass: "ui right floated button primary",
+      attrs: { type: "button", value: "Add to cart" },
+      on: { click: _vm.addToCart }
+    })
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("input", {
-        staticClass: "ui right floated button primary ",
-        attrs: { type: "button", value: "Add to cart" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

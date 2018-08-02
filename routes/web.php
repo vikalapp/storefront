@@ -22,3 +22,7 @@ Route::get('load/{name}', ['middleware' => [], function($name) {
 }]);
 Route::get('courses', 'CourseController@index')->name('courses.all');
 Route::get('course/{id}/show', 'CourseController@show')->name('course.show');
+
+Route::resource('cart', 'CartController');
+Route::delete('emptyCart', 'CartController@emptyCart');
+Route::post('switchToWishlist/{id}', 'CartController@switchToWishlist');
