@@ -10,7 +10,7 @@
                 </div>
                 <div class="row">
                     <div class="four wide column">
-                        <img class="ui medium bordered image" src="http://wpsghalelearningcenter.com/storage/185.jpg">
+                        <img class="ui medium bordered image" src="http://wpsghalearningcenter.com/storage/185.jpg">
                     </div>
                     <div class="twelve wide column">
                         {!! nl2br($course->description); !!}
