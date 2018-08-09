@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="ui middle aligned center aligned grid">
-  <div class="column">
+  <div class="register column">
     <h2 class="ui image header">
       <div class="content">
         Register Here

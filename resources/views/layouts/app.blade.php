@@ -100,6 +100,10 @@
             font-size: 1.5em;
         }
     }
+    .login.column,
+    .register.column {
+        max-width: 450px;
+    }
 
 
 </style>
@@ -144,7 +148,11 @@
                     <div class="right menu">
                         @auth
                             <div class="item">
-                                <a class="ui button">Log in</a>
+                                <a class="ui button" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
                             </div>
                             @else
                                 <div class="item">
@@ -153,7 +161,7 @@
                                 <div class="item">
                                     <a class="ui primary button" href="{{ route('register') }}">Sign Up</a>
                                 </div>
-                                @endauth
+                            @endauth
                     </div>
                 @endif
 
@@ -170,11 +178,15 @@
             @if (Route::has('login'))
                 <div class="right item">
                     @auth
-                        <a class="ui inverted button">Log in</a>
+                        <a class="ui button" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
                         @else
                             <a class="ui inverted button" href="{{ route('login') }}">Log in</a>
                             <a class="ui inverted button" href="{{ route('register') }}">Sign Up</a>
-                            @endauth
+                        @endauth
                 </div>
             @endif
         </div>
@@ -194,11 +206,15 @@
                         @if (Route::has('login'))
                             <div class="right item">
                                 @auth
-                                    <a class="ui inverted button">Log in</a>
+                                    <a class="ui inverted button" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
                                     @else
                                         <a class="ui inverted button" href="{{ route('login') }}">Log in</a>
                                         <a class="ui inverted button" href="{{ route('register') }}">Sign Up</a>
-                                        @endauth
+                                @endauth
                             </div>
                         @endif
                     </div>

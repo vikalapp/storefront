@@ -26,7 +26,7 @@ li {
                                         </div>
                                     </div>
                                 </div>
-                                <img src="http://wpsghalelearningcenter.com/storage/185.jpg">
+                                <img src="http://wpsghalearningcenter.com/storage/185.jpg">
                             </div>
                             <div class="content">
                                 <a class="header">{{ str_limit($courseInfo->name,25) }}</a>

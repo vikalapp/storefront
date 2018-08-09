@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -66,29 +66,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        User::create([
+
+        $user = User::create([
             'first_name' =>$data['first_name'],
             'last_name' =>$data['last_name'],
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-            $url="https://api.litmos.com/v1.svc/users";
-            $apikey = "e5d4d979-68a9-4b7f-94bf-3de2dab021fb";
-            $source = "PS";
-            $arr = array("UserName"=>$data['email'],"FirstName" => $data['first_name'],"LastName" => $data['last_name'],"Active"=>"true","Email"=>$data['email'],"AccessLevel"=>"Learner","Brand"=>"Default" );
-            $json_data = json_encode($arr);
-            $uri = $url.'?apikey='.$apikey.'&source='.$source;
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $uri);
-            curl_setopt($ch,CURLOPT_CUSTOMREQUEST, "POST");
-            curl_setopt($ch,CURLOPT_POSTFIELDS,$json_data);
-            curl_setopt($ch, CURLOPT_FAILONERROR,true);
-            curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-            $result = curl_exec($ch);
-            $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_close($ch); 
-            dd($status);
+
+        $url="https://api.litmos.com/v1.svc/users";
+        $apikey = "e5d4d979-68a9-4b7f-94bf-3de2dab021fb";
+        $source = "PS";
+        $arr = array("UserName"=>$data['email'],"FirstName" => $data['first_name'],"LastName" => $data['last_name'],"Active"=>"true","Email"=>$data['email'],"AccessLevel"=>"Learner","Brand"=>"Default" );
+        $json_data = json_encode($arr);
+        $uri = $url.'?apikey='.$apikey.'&source='.$source;
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $uri);
+        curl_setopt($ch,CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch,CURLOPT_POSTFIELDS,$json_data);
+        curl_setopt($ch, CURLOPT_FAILONERROR,true);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+        $result = curl_exec($ch);
+        $status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+
+
+        return $user;
+
     }
 }

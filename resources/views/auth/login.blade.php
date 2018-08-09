@@ -3,7 +3,7 @@
 @section('content')
       
 <div class="ui middle aligned center aligned grid">
-  <div class="column">
+  <div class="login column">
     <h2 class="ui image header">
       <div class="content">
       Log-in to your account
@@ -42,7 +42,9 @@
                 <label>Remember Me</label>
         </div>
         </div>
-        <div class="ui fluid large teal submit button">Login</div>
+          <button type="submit" class="ui fluid large teal submit button">
+              {{ __('Login') }}
+          </button>
         <i class=""></i>
         <div class="content">
             <a href="{{ route('password.request') }}">Forgot Your Password?</a>
