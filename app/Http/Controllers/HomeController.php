@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Repositories\CourseRepository;
 use App\Repositories\LearningPathRepository;
 use Illuminate\Http\Request;
+use App\Course;
+
 
 class HomeController extends Controller
 {
@@ -26,7 +28,8 @@ class HomeController extends Controller
     public function index()
     {
         $courseRepo = new CourseRepository();
-        $courses = $courseRepo->getActive();
+        // $courses = $courseRepo->getActive();
+        $courses = Course::paginate(8);
         return view('welcome')
             ->with('courses', $courses);
     }

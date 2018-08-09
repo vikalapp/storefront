@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<head>
-   <link rel="stylesheet" type="text/css" href="/css/register.css">
-</head>
-
 <div class="ui middle aligned center aligned grid">
   <div class="column">
     <h2 class="ui image header">
@@ -13,17 +9,35 @@
       </div>
     </h2>
     <form action="{{ route('register') }}" method="POST" class="ui large form">
+    @csrf 
       <div class="ui stacked secondary  segment">
         <div class="field">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="first_name" placeholder="First Name">
           </div>
             @if ($errors->has('name'))
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('name') }}</strong>
+                    <strong>{{ $errors->first('first_name') }}</strong>
                 </span>
             @endif
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="last_name" placeholder="Last Name">
+          </div>
+            @if ($errors->has('last_name'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('last_name') }}</strong>
+                </span>
+            @endif
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="name" placeholder="Full Name">
+          </div>
         </div>
         <div class="field">
           <div class="ui left icon input">
@@ -53,7 +67,7 @@
             <input type="password" name="password_confirmation" placeholder="Confirm password">
           </div>
         </div>
-        <div class="ui fluid large teal submit button">Register</div>
+        <input type="submit" name="submit" class="ui fluid large teal submit button" value="Register" >
       </div>
     </form>
   </div>

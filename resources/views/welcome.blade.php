@@ -1,3 +1,13 @@
+<style>
+ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+li {
+    float: left;
+    padding: 16px;
+}
+</style>
 @extends('layouts.app')
 @section('content')
     <div class="ui vertical segment">
@@ -35,27 +45,19 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="right aligned column">
-                        <div class="ui pagination menu">
-                            <a class="active item">
-                                1
-                            </a>
-                            <div class="disabled item">
-                                ...
+                    <div class="right aligned column"> 
+                        <div class="ui link list">
+                            <div class="ui pagination menu">
+                                <div class="ui relaxed grid">     
+                                {{$courses->links()}} 
+                                </div>
                             </div>
-                            <a class="item">
-                                10
-                            </a>
-                            <a class="item">
-                                11
-                            </a>
-                            <a class="item">
-                                12
-                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-
-        </div>
+    </div>
 @endsection
+
+
+

@@ -115,7 +115,6 @@
             });
 
             $('.quantity').on('change', function() {
-                $('.quantity').on('change', function() {
                     var id = $(this).attr('data-id');
                     $.ajax({
                         type: "PATCH",
@@ -127,8 +126,6 @@
                             window.location.href = '{{ url('/cart') }}';
                         }
                     });
-
-                });
         });
 
 

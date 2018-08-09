@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<head>
-   <link rel="stylesheet" type="text/css" href="/css/login.css">
-</head>
-                
+      
 <div class="ui middle aligned center aligned grid">
   <div class="column">
     <h2 class="ui image header">
@@ -61,7 +58,18 @@
 </div>
 
 </form>
-
-<script src="/js/login.js"></script>
-
+<style type="text/css">
+    body {
+      background-color: #DADADA;
+    }
+    body > .grid {
+      height: 100%;
+    }
+    .image {
+      margin-top: -100px;
+    }
+    .column {
+      max-width: 450px;
+    }
+  </style>
 @endsection
