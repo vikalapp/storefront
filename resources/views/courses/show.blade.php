@@ -23,7 +23,7 @@
                         {!! csrf_field() !!}
                         <input type="hidden" name="id" value="{{ $course->id }}">
                         <input type="hidden" name="name" value="{{ $course->name }}">
-                        <input type="hidden" name="price" value="{{ $course->price }}">
+                        <input type="hidden" name="price" value="{{ $course->price ?? 0 }}">
                         <input type="submit" class="ui right floated button primary" value="Add to Cart">
                     </form>
                 </div>
